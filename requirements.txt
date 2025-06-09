@@ -1,0 +1,15 @@
+# TensorFlow/Keras stack from Repo 2
+tensorflow
+opencv-python
+numpy
+scikit-learn
+matplotlib
+scipy
+
+# PyTorch stack from Repo 1
+torch
+torchvision
+pandas
+
+# For yolov5
+seaborn
