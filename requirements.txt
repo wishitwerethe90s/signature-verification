@@ -13,3 +13,8 @@ pandas
 
 # For yolov5
 seaborn
+
+# For gan - TODO: review these
+dominate
+streamlit
+wandb
