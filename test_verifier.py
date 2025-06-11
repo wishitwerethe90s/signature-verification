@@ -11,10 +11,10 @@ MODEL_WEIGHTS = 'models/verification_siamese.h5'
 # NOTE: The main.py used specific data paths.
 # Please ensure you have these images or replace them with your own test images.
 # A genuine-genuine pair
-GENUINE_1 = '/home/paarthgupta/hdfc/innovation/signature/Signature-Recognition-with-SiameseNetwork-and-CycleGAN/data/01_050.png'
-GENUINE_2 = '/home/paarthgupta/hdfc/innovation/signature/Signature-Recognition-with-SiameseNetwork-and-CycleGAN/data/02_050.png'
+GENUINE_1 = '/home/paarthgupta/hdfc/innovation/signature/signature-final/output/detection_results/cropped_signature_1.jpg'
+GENUINE_2 = '/home/paarthgupta/hdfc/innovation/signature/signature-final/output/detection_results/cropped_signature_2.jpg'
 # A genuine-forged pair
-FORGED = '/home/paarthgupta/hdfc/innovation/signature/Signature-Recognition-with-SiameseNetwork-and-CycleGAN/data/02_067.png'
+# FORGED = '/home/paarthgupta/hdfc/innovation/signature/signature-final/output/detection_results/cropped_signature_2.jpg'
 
 # --- Main execution ---
 if __name__ == "__main__":
@@ -40,19 +40,19 @@ if __name__ == "__main__":
         try:
             # Test a genuine-genuine pair (should have a low score)
             genuine_score = get_verification_score(GENUINE_1, GENUINE_2, MODEL_WEIGHTS)
-            print(f"Verification score for two genuine signatures: {genuine_score:.4f}")
+            print(f"Verification score for the signatures: {genuine_score:.4f}")
             if genuine_score <= 0.5:
-                print("Result: Correctly identified as 'Genuine'")
+                print("Result: Signatures are matching")
             else:
-                print("Result: Incorrectly identified as 'Forged'")
+                print("Result: Signatures are not matching")
 
             # Test a genuine-forged pair (should have a high score)
-            forged_score = get_verification_score(GENUINE_1, FORGED, MODEL_WEIGHTS)
-            print(f"\nVerification score for a genuine vs. forged signature: {forged_score:.4f}")
-            if forged_score > 0.5:
-                print("Result: Correctly identified as 'Forged'")
-            else:
-                print("Result: Incorrectly identified as 'Genuine'")
+            # forged_score = get_verification_score(GENUINE_1, FORGED, MODEL_WEIGHTS)
+            # print(f"\nVerification score for a genuine vs. forged signature: {forged_score:.4f}")
+            # if forged_score > 0.5:
+            #     print("Result: Correctly identified as 'Forged'")
+            # else:
+            #     print("Result: Incorrectly identified as 'Genuine'")
         except Exception as e:
             print(f"An error occurred during verification: {e}")
 
